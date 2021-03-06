@@ -71,6 +71,65 @@ class MainString{
         else
             return false;
     }
+
+    public static String reverse(String input){
+
+        char[] charray = input.toCharArray();
+        int length = charray.length-1;
+        char[] reverse = new char[length+1];
+
+        for(int i = length,j=0;i>=0;i--,j++)
+            reverse[j] = charray[i];
+
+            String string = String.valueOf(reverse);
+
+            return string;
+    }
+
+    public static String secondWayReverse(String input){
+        
+        char[] chararray = input.toCharArray();
+        int length = input.length()-1;
+
+        for(int i =length , j = 0; i>=0;i--,j++){
+
+            if(i>=j){
+                char tmp = chararray[j];
+                chararray[j] = chararray[i];
+                chararray[i] = tmp;
+            }
+        }
+        return String.valueOf(chararray);
+    }
+
+    public static boolean equal(String input1,String input2){
+        
+            char[] ch1 = input1.toCharArray();
+            char[] ch2 = input2.toCharArray();
+        for(int i=0,j=0;i !=ch1.length-1 && j !=ch2.length-1;i++,j++)
+        {
+             //here see if matching then not doing anything that's why skip if not matching then do something that's why write logic here
+            if(ch1[i] !=ch2[j])
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean palindrome(String input){
+
+        char[] ch = input.toCharArray();
+
+        for(int i=0,j=ch.length-1;j>=i;i++,j--){
+
+            if(ch[i] != ch[j])
+                return false;
+           }
+           return true;
+    }
+
+
+
+
     private static boolean valid(char ch){
 
         if(
@@ -104,6 +163,13 @@ class MainString{
 
        System.out.println(hashmap);
        System.out.println(isValid("annie123"));
+       System.out.println(reverse("annie"));
+
+       System.out.println(secondWayReverse("annie"));
+       System.out.println(equal("annie","annie"));;
+       System.out.println(palindrome("madam"));
+       System.out.println(palindrome("nitin"));
+       System.out.println(palindrome("nic"));
     }
 }
 
